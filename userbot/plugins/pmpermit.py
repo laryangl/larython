@@ -119,11 +119,11 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             remwarns=remwarns,
         )
     elif gvarstatus("pmmenu") is None:
-        USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me. 
+        USER_BOT_NO_WARN = f"""𓆰 𝑺𝑶𝑼𝑹𝑪𝑬 ˹Yꪮꪶꪖꪀᦔ˼༒࿅ ↫ - 𝑷𝑴𝑺 ↲ 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧʏᴏʟᴀɴᴅⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n\n ⪼  هلو  {mention} .𓆰 لم أوافق على إرسالك لي حتى الآن رسالة شخصية ، لاتقم بارسال الكثير من الرسائل هنا. 
 
-You have {warns}/{totalwarns} warns until you get blocked by the CatUserbot.
+⮐ **عندك** {warns}/{totalwarns} **تحذيرات**\n 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧʏᴏʟᴀɴᴅⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝-[˹Yꪮꪶꪖꪀᦔ˼༒࿅ ↫](t.me/yoland_1k) 𓆪
 
-Choose an option from below to specify the reason of your message and wait for me to check it. __⬇️"""
+اختر خيارًا من الأسفل لتحديد سبب رسالتك وانتظر حتى أتحقق منه. __⬇️"""
     else:
         USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me.
 
