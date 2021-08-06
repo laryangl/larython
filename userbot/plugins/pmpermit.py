@@ -231,10 +231,10 @@ async def do_pm_enquire_action(event, chat):
     except AttributeError:
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
-        text = """__Hey! Have some patience. My master has not seen your message yet. \
-My master usually responds to people, though idk about some exceptional users.__
-__My master will respond when he/she comes online, if he/she wants to.__
-**Please do not spam unless you wish to be blocked and reported.**"""
+        text = """مرحبا! تحلى بالصبر. لم ير سيدي رسالتك بعد \
+عادة ما يستجيب سيدي للناس ، على الرغم من عدم معرفتي ببعض المستخدمين الاستثنائيين.__
+__سيستجيب سيدي عند اتصاله بالإنترنت ، إذا أراد ذلك.__
+**يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في أن يتم حظرك والإبلاغ عنك.**"""
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
         sql.del_collection("pmwarns")
@@ -253,9 +253,9 @@ __My master will respond when he/she comes online, if he/she wants to.__
         LOGS.info(str(e))
     sql.del_collection("pmmessagecache")
     sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
-    USER_BOT_WARN_ZERO = f"**If I remember correctly I mentioned in my previous message that this is not the right place for you to spam. \
-Though you ignored that message. So, I simply blocked you. \
-Now you can't do anything unless my master comes online and unblocks you.**"
+    USER_BOT_WARN_ZERO = f"**إذا كنت أتذكر بشكل صحيح ، فقد ذكرت في رسالتي السابقة أن هذا ليس المكان المناسب لك لإرسال رسائل غير مرغوب فيها. \
+على الرغم من أنك تجاهلت تلك الرسالة. لذلك ، لقد حظرتك ببساطة. \
+الآن لا يمكنك فعل أي شيء ما لم يتصل سيدي بالإنترنت ويفتح لك الحظر.**"
     await event.reply(USER_BOT_WARN_ZERO)
     await event.client(functions.contacts.BlockRequest(chat.id))
     the_message = f"#BLOCKED_PM\
@@ -281,10 +281,10 @@ async def do_pm_request_action(event, chat):
     except AttributeError:
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
-        text = """__Hey have some patience. My master has not seen your message yet. \
-My master usually responds to people, though idk about some exceptional users.__
-__My master will respond when he/she comes back online, if he/she wants to.__
-**Please do not spam unless you wish to be blocked and reported.**"""
+        text = """__مهلا ، تحلى ببعض الصبر. لم ير سيدي رسالتك بعد. \
+عادة ما يستجيب سيدي للناس ، على الرغم من عدم معرفتي ببعض المستخدمين الاستثنائيين.__
+__سيستجيب سيدي عند عودته عبر الإنترنت ، إذا أراد ذلك.__
+**يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في أن يتم حظرك والإبلاغ عنك.**"""
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
         sql.del_collection("pmwarns")
