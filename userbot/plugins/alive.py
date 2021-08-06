@@ -24,8 +24,8 @@ plugin_category = "utils"
 
 
 @catub.cat_cmd(
-    pattern="alive$",
-    command=("alive", plugin_category),
+    pattern="فحص$",
+    command=("فحص", plugin_category),
     info={
         "header": "To check bot's alive status",
         "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
@@ -39,20 +39,20 @@ async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    CUSTOM_ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "✮ MY BOT IS RUNNING SUCCESSFULLY ✮"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✮ "
+    CUSTOM_ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "✮ بوت لاري يعمل بنجاح  ✮"
     CAT_IMG = gvarstatus("ALIVE_PIC")
     if CAT_IMG:
         CAT = [x for x in CAT_IMG.split()]
         A_IMG = list(CAT)
         PIC = random.choice(A_IMG)
         cat_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-        cat_caption += f"**{EMOJI} Database :** `{check_sgnirts}`\n"
-        cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-        cat_caption += f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
-        cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
+        cat_caption += f"**{EMOJI} قاعده البيانات  :** `{check_sgnirts}`\n"
+        cat_caption += f"**{EMOJI} اصدار التليثون:** `{version.__version__}\n`"
+        cat_caption += f"**{EMOJI} اصدار لاري :** `{catversion}`\n"
+        cat_caption += f"**{EMOJI} اصدار البايثون :** `{python_version()}\n`"
         cat_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
-        cat_caption += f"**{EMOJI} Master:** {mention}\n"
+        cat_caption += f"**{EMOJI} المستخدم:** {mention}\n"
         try:
             await event.client.send_file(
                 event.chat_id, PIC, caption=cat_caption, reply_to=reply_to_id
@@ -67,12 +67,12 @@ async def amireallyalive(event):
         await edit_or_reply(
             event,
             f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-            f"**{EMOJI} Database :** `{check_sgnirts}`\n"
-            f"**{EMOJI} Telethon Version :** `{version.__version__}\n`"
-            f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
-            f"**{EMOJI} Python Version :** `{python_version()}\n`"
-            f"**{EMOJI} Uptime :** `{uptime}\n`"
-            f"**{EMOJI} Master:** {mention}\n",
+            f"**{EMOJI} قاعده البيانات  :** `{check_sgnirts}`\n"
+            f"**{EMOJI} اصدار التليثون:** `{version.__version__}\n`"
+            f"**{EMOJI} اصدار لاري :** `{catversion}`\n"
+            f"**{EMOJI} اصدار البايثون :** `{python_version()}\n`"
+            f"**{EMOJI} الاستخدام :** `{uptime}\n`"
+            f"**{EMOJI} المستخدم:** {mention}\n",
         )
 
 
@@ -90,12 +90,12 @@ async def amireallyalive(event):
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    cat_caption = f"**Catuserbot is Up and Running**\n"
-    cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-    cat_caption += f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
-    cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
-    cat_caption += f"**{EMOJI} Master:** {mention}\n"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✮ "
+    cat_caption = f"**بوت لاري يعمل بنجاح**\n"
+    cat_caption += f"**{EMOJI} اصدار التليثون:** `{version.__version__}\n`"
+    cat_caption += f"**{EMOJI} اصدار لاري :** `{catversion}`\n"
+    cat_caption += f"**{EMOJI} اصدار البايثون :** `{python_version()}\n`"
+    cat_caption += f"**{EMOJI} المستخدم:** {mention}\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, cat_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
