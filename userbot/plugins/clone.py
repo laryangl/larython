@@ -26,8 +26,8 @@ DEFAULTUSERBIO = (
 
 
 @catub.cat_cmd(
-    pattern="clone(?:\s|$)([\s\S]*)",
-    command=("clone", plugin_category),
+    pattern="نسخ(?:\s|$)([\s\S]*)",
+    command=("نسخ", plugin_category),
     info={
         "header": "To clone account of mentiond user or replied user",
         "usage": "{tr}clone <username/userid/reply>",
@@ -48,7 +48,7 @@ async def _(event):
         last_name = html.escape(last_name)
         last_name = last_name.replace("\u2060", "")
     if last_name is None:
-        last_name = "⁪⁬⁮⁮⁮⁮ ‌‌‌‌"
+        last_name = "⁪⁬⁮⁮⁮⁮ ‌"
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     user_bio = replied_user.about
     if user_bio is not None:
@@ -58,7 +58,7 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(about=user_bio))
     pfile = await event.client.upload_file(profile_pic)
     await event.client(functions.photos.UploadProfilePhotoRequest(pfile))
-    await edit_delete(event, "**LET US BE AS ONE**")
+    await edit_delete(event, "**تم نسخ الابروفايل **")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -67,8 +67,8 @@ async def _(event):
 
 
 @catub.cat_cmd(
-    pattern="revert$",
-    command=("revert", plugin_category),
+    pattern="اعاده$",
+    command=("اعاده", plugin_category),
     info={
         "header": "To revert back to your original name , bio and profile pic",
         "note": "For proper Functioning of this command you need to set AUTONAME and DEFAULT_BIO with your profile name and bio respectively.",
@@ -88,7 +88,7 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(about=bio))
     await event.client(functions.account.UpdateProfileRequest(first_name=name))
     await event.client(functions.account.UpdateProfileRequest(last_name=blank))
-    await edit_delete(event, "successfully reverted to your account back")
+    await edit_delete(event, " تم اعاده البروفايل الى وضعه")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID, f"#REVERT\nsuccessfully reverted back to your profile"
