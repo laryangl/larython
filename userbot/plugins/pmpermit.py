@@ -233,7 +233,7 @@ async def do_pm_enquire_action(event, chat):
     if str(chat.id) not in PM_WARNS:
         text = """مرحبا! تحلى بالصبر. لم ير سيدي رسالتك بعد \
 عادة ما يستجيب سيدي للناس ، على الرغم من عدم معرفتي ببعض المستخدمين الاستثنائيين.__
-__سيستجيب سيدي عند اتصاله بالإنترنت ، إذا أراد ذلك.__
+سيستجيب سيدي عند اتصاله بالإنترنت ، إذا أراد ذلك.
 **يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في أن يتم حظرك والإبلاغ عنك.**"""
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
@@ -283,7 +283,7 @@ async def do_pm_request_action(event, chat):
     if str(chat.id) not in PM_WARNS:
         text = """__مهلا ، تحلى ببعض الصبر. لم ير سيدي رسالتك بعد. \
 عادة ما يستجيب سيدي للناس ، على الرغم من عدم معرفتي ببعض المستخدمين الاستثنائيين.__
-__سيستجيب سيدي عند عودته عبر الإنترنت ، إذا أراد ذلك.__
+سيستجيب سيدي عند عودته عبر الإنترنت ، إذا أراد ذلك.
 **يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في أن يتم حظرك والإبلاغ عنك.**"""
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
@@ -303,9 +303,9 @@ __سيستجيب سيدي عند عودته عبر الإنترنت ، إذا أ
         LOGS.info(str(e))
     sql.del_collection("pmmessagecache")
     sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
-    USER_BOT_WARN_ZERO = f"**If I remember correctly I mentioned in my previous message that this is not the right place for you to spam. \
-Though you ignored me and messaged me. So, i simply blocked you. \
-Now you can't do anything unless my master comes online and unblocks you.**"
+    USER_BOT_WARN_ZERO = f"**إذا كنت أتذكر بشكل صحيح ، فقد ذكرت في رسالتي السابقة أن هذا ليس المكان المناسب لك لإرسال رسائل غير مرغوب فيها. \
+على الرغم من أنك تجاهلتني وأرسلت لي رسالة. لذلك ، لقد حظرتك ببساطة. \
+الآن لا يمكنك فعل أي شيء ما لم يدخل سيدي على الإنترنت ويفتح لك الحظر.**"
     await event.reply(USER_BOT_WARN_ZERO)
     await event.client(functions.contacts.BlockRequest(chat.id))
     the_message = f"#BLOCKED_PM\
@@ -331,10 +331,10 @@ async def do_pm_chat_action(event, chat):
     except AttributeError:
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
-        text = """__Heyy! I am busy right now I already asked you to wait know. After my work finishes. \
-We can talk but not right know. Hope you understand.__
-__My master will respond when he/she comes back online, if he/she wants to.__
-**Please do not spam unless you wish to be blocked and reported.**"""
+        text = """__مهلا! أنا مشغول الآن لقد طلبت منك الانتظار لمعرفة ذلك. بعد انتهاء عملي. \
+يمكننا التحدث ولكن لا نعرف الحق. أتمنى أن تتفهم.__
+__سيستجيب سيدي عند عودته عبر الإنترنت ، إذا أراد ذلك.__
+**يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في أن يتم حظرك والإبلاغ عنك.**"""
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
         sql.del_collection("pmwarns")
@@ -353,7 +353,7 @@ __My master will respond when he/she comes back online, if he/she wants to.__
         LOGS.info(str(e))
     sql.del_collection("pmmessagecache")
     sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
-    USER_BOT_WARN_ZERO = f"**If I remember correctly I mentioned in my previous message this is not the right place for you to spam. \
+    USER_BOT_WARN_ZERO = f"**إذا كنت أتذكر بشكل صحيح ، فقد ذكرت في رسالتي السابقة ، فهذا ليس المكان المناسب لك لإرسال رسائل غير مرغوب فيها. \
 Though you ignored that message. So, I simply blocked you. \
 Now you can't do anything unless my master comes online and unblocks you.**"
     await event.reply(USER_BOT_WARN_ZERO)
@@ -382,9 +382,9 @@ async def do_pm_spam_action(event, chat):
             del PMMESSAGE_CACHE[str(chat.id)]
     except Exception as e:
         LOGS.info(str(e))
-    USER_BOT_WARN_ZERO = f"**If I remember correctly I mentioned in my previous message this is not the right place for you to spam. \
-Though you ignored that message. So, I simply blocked you. \
-Now you can't do anything unless my master comes online and unblocks you.**"
+    USER_BOT_WARN_ZERO = f"**إذا كنت أتذكر بشكل صحيح أنني ذكرت في رسالتي السابقة ، فهذا ليس المكان المناسب لك لإرسال رسائل غير مرغوب فيها. \
+على الرغم من أنك تجاهلت تلك الرسالة. لذلك ، لقد حظرتك ببساطة. \
+الآن لا يمكنك فعل أي شيء ما لم يدخل سيدي على الإنترنت ويفتح لك الحظر.**"
     await event.reply(USER_BOT_WARN_ZERO)
     await event.client(functions.contacts.BlockRequest(chat.id))
     the_message = f"#BLOCKED_PM\
@@ -485,12 +485,12 @@ __Let's make this smooth and let me know why you are here.__
 
 **Choose one of the following reasons why you are here:**"""
     buttons = [
-        (Button.inline(text="To enquire something.", data="to_enquire_something"),),
-        (Button.inline(text="To request something.", data="to_request_something"),),
-        (Button.inline(text="To chat with my master.", data="to_chat_with_my_master"),),
+        (Button.inline(text="للاستفسار عن شيء ما.", data="to_enquire_something"),),
+        (Button.inline(text="لطلب شيء.", data="to_request_something"),),
+        (Button.inline(text="للدردشة مع مطوري.", data="to_chat_with_my_master"),),
         (
             Button.inline(
-                text="To spam my master's inbox.",
+                text="لإرسال بريد عشوائي إلى البريد الوارد الخاص بشخصيتي الرئيسية.",
                 data="to_spam_my_master_inbox",
             ),
         ),
@@ -510,11 +510,11 @@ __Let's make this smooth and let me know why you are here.__
 @catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "Idoit this options for user who messages you. not for you"
+        text = "قم بتحرير هذه الخيارات للمستخدم الذي يرسل إليك رسائل. ليست لك"
         return await event.answer(text, cache_time=0, alert=True)
-    text = """__Okay. Your request has been registered. Do not spam my master's inbox now. \
-My master is busy right now, When My master comes online he/she will check your message and ping you. \
-Then we can extend this conversation more but not right now.__"""
+    text = """__تمام. تم تسجيل طلبك. لا ترسل رسائل غير مرغوب فيها إلى صندوق الوارد الخاص بشخصيتي الرئيسية الآن. \
+سيدي مشغول الآن ، عندما يأتي سيدي عبر الإنترنت ، سيتحقق من رسالتك ويتصل بك. \
+ثم يمكننا تمديد هذه المحادثة أكثر ولكن ليس الآن.__"""
     sqllist.add_to_list("pmenquire", event.query.user_id)
     try:
         PM_WARNS = sql.get_collection("pmwarns").json
@@ -533,10 +533,10 @@ async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "Idoit this options for user who messages you. not for you"
         return await event.answer(text, cache_time=0, alert=True)
-    text = """__Okay. I have notified my master about this. When he/she comes comes online\
- or when my master is free he/she will look into this chat and will ping you so we can have a friendly chat.__\
+    text = """__تمام. لقد أخبرت سيدي عن هذا. عندما يكون متصلاً بالإنترنت\
+ أو عندما يكون سيدي متفرغًا ، سينظر في هذه الدردشة وسيتصل بك حتى نتمكن من إجراء محادثة ودية.__\
 
-**But right now please do not spam unless you wish to get blocked.**"""
+**لكن في الوقت الحالي ، يرجى عدم إرسال بريد عشوائي إلا إذا كنت ترغب في حظره.**"""
     sqllist.add_to_list("pmrequest", event.query.user_id)
     try:
         PM_WARNS = sql.get_collection("pmwarns").json
@@ -553,10 +553,10 @@ async def on_plug_in_callback_query_handler(event):
 @catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "Idoit these options are for users who message you. not for you"
+        text = "احرص على أن تكون هذه الخيارات للمستخدمين الذين يراسلونك. ليست لك"
         return await event.answer(text, cache_time=0, alert=True)
-    text = """__Yaa sure we can have a friendly chat but not right now. we can have this\
-some other time. Right now I am a little busy. when I come online and if I am free. I will ping you ,this is Damm sure.__"""
+    text = """__نعم بالتأكيد يمكننا إجراء محادثة ودية ولكن ليس الآن. يمكننا الحصول على هذا\
+في وقت آخر. الآن أنا مشغول قليلاً. عندما أكون متصلاً بالإنترنت وإذا كنت متفرغًا. سوف أتصل بك ، هذا مؤكد دام.__"""
     sqllist.add_to_list("pmchat", event.query.user_id)
     try:
         PM_WARNS = sql.get_collection("pmwarns").json
