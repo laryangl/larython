@@ -63,7 +63,9 @@ async def fetch_info(replied_user, event):
     caption += f"<b>☆:  Username:</b> {username}\n"
     caption += f"<b>☆:  ID:</b> <code>{user_id}</code>\n"
     caption += f"<b>☆:  Data Centre ID:</b> {dc_id}\n"
-    caption += f"<b>☆:  Number of Profile Pics:</b> {replied_user_profile_photos_count}\n"
+    caption += (
+        f"<b>☆:  Number of Profile Pics:</b> {replied_user_profile_photos_count}\n"
+    )
     caption += f"<b>☆:  Is Bot:</b> {is_bot}\n"
     caption += f"<b>☆:  Is Restricted:</b> {restricted}\n"
     caption += f"<b>☆:  Is Verified by Telegram:</b> {verified}\n\n"
