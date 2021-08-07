@@ -119,11 +119,14 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             remwarns=remwarns,
         )
     elif gvarstatus("pmmenu") is None:
-        USER_BOT_NO_WARN = f"""""- نورت  الحسابہَ **{mention}** \n - انتضرَ حتهہَ يجيہَ مالكہَ الحساب. 
+        USER_BOT_NO_WARN = (
+            f"""""- نورت  الحسابہَ **{mention}** \n - انتضرَ حتهہَ يجيہَ مالكہَ الحساب. 
 عندكہَ **{warns}/{totalwarns}** تحذيرات َ .
 اخـتـࢪ احـد الـخـيـاࢪاتـہَ فـيـہَ الاسـفـلـہَ ، ⬇️🤍
  وانـتـظـࢪ الـى انـہَ اصـبـحـہَ مـتـصـلـہَ بالانـتـࢪنـتـہَ ،
- لـيـتـمـہَ الـࢪد عـلـيـڪـہَ . 🧸♥️ ⬇️⬇️"""""
+ لـيـتـمـہَ الـࢪد عـلـيـڪـہَ . 🧸♥️ ⬇️⬇️"""
+            ""
+        )
     else:
         USER_BOT_NO_WARN = f"""- نورت  الحسابہَ **{mention}** \n - انتضرَ حتهہَ يجيہَ مالكہَ الحساب. 
 عندكہَ **{warns}/{totalwarns}** تحذيرات َ .
@@ -442,7 +445,11 @@ async def you_dm_other(event):
     start_date = str(datetime.now().strftime("%B %d, %Y"))
     if not pmpermit_sql.is_approved(chat.id) and str(chat.id) not in PM_WARNS:
         pmpermit_sql.approve(
-            chat.id, get_display_name(chat), start_date, chat.username, "**⌔︙خـطـأ ~> لـم يـتـم رفـضـه .⭕️**"
+            chat.id,
+            get_display_name(chat),
+            start_date,
+            chat.username,
+            "**⌔︙خـطـأ ~> لـم يـتـم رفـضـه .⭕️**",
         )
         try:
             PMMESSAGE_CACHE = sql.get_collection("pmmessagecache").json
@@ -566,7 +573,7 @@ async def on_plug_in_callback_query_handler(event):
          \n\n **⌔︙هـذا تـحـذيـرك الأخـيـر ، ارسـل رسـالـة واحـدة وسـيـتـم حـظـرك تـلـقـائـيـاً . ‼️ **"
     sqllist.add_to_list("pmspam", event.query.user_id)
     try:
-     PM_WARNS = sql.get_collection("pmspam").json
+        PM_WARNS = sql.get_collection("pmspam").json
     except AttributeError:
         PM_WARNS = {}
     if str(event.query.user_id) in PM_WARNS:
@@ -595,14 +602,18 @@ async def pmpermit_on(event):
                 event, "**⌔︙ تـم تـفـعـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**"
             )
         else:
-            await edit_delete(event, "**⌔︙امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**")
+            await edit_delete(
+                event, "**⌔︙امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**"
+            )
     elif gvarstatus("pmpermit") is not None:
         delgvar("pmpermit")
         await edit_delete(
             event, "**⌔︙تـم تـعـطـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**"
         )
     else:
-        await edit_delete(event, "**⌔︙ امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
+        await edit_delete(
+            event, "**⌔︙ امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**"
+        )
 
 
 @iqthon.iq_cmd(
@@ -617,7 +628,7 @@ async def pmpermit_on(event):
     "Turn on/off pmmenu."
     input_str = event.pattern_match.group(1)
     if input_str == "ايقاف":
-        if gvarstatus("pmmenu") is None: 
+        if gvarstatus("pmmenu") is None:
             addgvar("pmmenu", "false")
             await edit_delete(
                 event,
@@ -665,7 +676,7 @@ async def approve_p_m(event):  # sourcery no-metrics
             return
     if not reason:
         reason = "**⌔︙لـم يـذكـر 💭**"
-    try: 
+    try:
         PM_WARNS = sql.get_collection("pmwarns").json
     except AttributeError:
         PM_WARNS = {}
