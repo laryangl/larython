@@ -1,4 +1,4 @@
-# Userbot module for fetching info about any user on Telegram(including you!).
+# لاري بوت
 
 import html
 import os
@@ -59,23 +59,23 @@ async def fetch_info(replied_user, event):
     username = "@{}".format(username) if username else ("This User has no Username")
     user_bio = "This User has no About" if not user_bio else user_bio
     caption = "<b><i>USER INFO from Durov's Database :</i></b>\n\n"
-    caption += f"<b>👤 First Name:</b> {first_name} {last_name}\n"
-    caption += f"<b>🤵 Username:</b> {username}\n"
-    caption += f"<b>🔖 ID:</b> <code>{user_id}</code>\n"
-    caption += f"<b>🌏 Data Centre ID:</b> {dc_id}\n"
-    caption += f"<b>🖼 Number of Profile Pics:</b> {replied_user_profile_photos_count}\n"
-    caption += f"<b>🤖 Is Bot:</b> {is_bot}\n"
-    caption += f"<b>🔏 Is Restricted:</b> {restricted}\n"
-    caption += f"<b>🌐 Is Verified by Telegram:</b> {verified}\n\n"
-    caption += f"<b>✍️ Bio:</b> \n<code>{user_bio}</code>\n\n"
-    caption += f"<b>👥 Common Chats with this user:</b> {common_chat}\n"
-    caption += f"<b>🔗 Permanent Link To Profile:</b> "
+    caption += f"<b>☆:  First Name:</b> {first_name} {last_name}\n"
+    caption += f"<b>☆:  Username:</b> {username}\n"
+    caption += f"<b>☆:  ID:</b> <code>{user_id}</code>\n"
+    caption += f"<b>☆:  Data Centre ID:</b> {dc_id}\n"
+    caption += f"<b>☆:  Number of Profile Pics:</b> {replied_user_profile_photos_count}\n"
+    caption += f"<b>☆:  Is Bot:</b> {is_bot}\n"
+    caption += f"<b>☆:  Is Restricted:</b> {restricted}\n"
+    caption += f"<b>☆:  Is Verified by Telegram:</b> {verified}\n\n"
+    caption += f"<b>☆:  Bio:</b> \n<code>{user_bio}</code>\n\n"
+    caption += f"<b>☆:  Common Chats with this user:</b> {common_chat}\n"
+    caption += f"<b>☆:  Permanent Link To Profile:</b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
     return photo, caption
 
 
 @catub.cat_cmd(
-    pattern="userinfo(?:\s|$)([\s\S]*)",
+    pattern="ايدي(?:\s|$)([\s\S]*)",
     command=("userinfo", plugin_category),
     info={
         "header": "Gets information of an user such as restrictions ban by spamwatch or cas.",
@@ -127,12 +127,12 @@ async def _(event):
     else:
         cas = "**Antispam(CAS) Banned :** `Couldn't Fetch`"
     caption = """**Info of [{}](tg://user?id={}):
-   -🔖ID : **`{}`
-   **-**👥**Groups in Common : **`{}`
-   **-**🌏**Data Centre Number : **`{}`
-   **-**🔏**Restricted by telegram : **`{}`
-   **-**🦅{}
-   **-**👮‍♂️{}
+   -☆: ID : **`{}`
+   **-**☆: **Groups in Common : **`{}`
+   **-**☆: **Data Centre Number : **`{}`
+   **-**☆: **Restricted by telegram : **`{}`
+   **-**☆: {}
+   **-**☆: {}
 """.format(
         first_name,
         user_id,
@@ -147,7 +147,7 @@ async def _(event):
 
 
 @catub.cat_cmd(
-    pattern="whois(?:\s|$)([\s\S]*)",
+    pattern="ايدي(?:\s|$)([\s\S]*)",
     command=("whois", plugin_category),
     info={
         "header": "Gets info of an user.",
@@ -187,7 +187,7 @@ async def who(event):
 
 
 @catub.cat_cmd(
-    pattern="link(?:\s|$)([\s\S]*)",
+    pattern="الرابط(?:\s|$)([\s\S]*)",
     command=("link", plugin_category),
     info={
         "header": "Generates a link to the user's PM .",
