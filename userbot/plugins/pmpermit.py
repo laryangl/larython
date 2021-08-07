@@ -659,7 +659,7 @@ async def pmpermit_on(event):
 
 
 @catub.cat_cmd(
-    pattern="(a|approve)(?:\s|$)([\s\S]*)",
+    pattern="(a|سماح)(?:\s|$)([\s\S]*)",
     command=("approve", plugin_category),
     info={
         "header": "To approve user to direct message you.",
@@ -735,7 +735,7 @@ async def approve_p_m(event):  # sourcery no-metrics
 
 
 @catub.cat_cmd(
-    pattern="(da|disapprove)(?:\s|$)([\s\S]*)",
+    pattern="(da|رفض)(?:\s|$)([\s\S]*)",
     command=("disapprove", plugin_category),
     info={
         "header": "To disapprove user to direct message you.",
