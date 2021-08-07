@@ -185,7 +185,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
 @catub.cat_cmd(
     pattern="تحديث(| الان)?$",
-    command=("update", plugin_category),
+    command=("تحديث", plugin_category),
     info={
         "header": "To update userbot.",
         "description": "I recommend you to do update deploy atlest once a week.",
@@ -195,7 +195,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         },
         "usage": [
             "{tr}update",
-            "{tr}update now",
+            "{tr}تحديث الان",
             "{tr}update deploy",
         ],
     },
