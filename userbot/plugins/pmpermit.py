@@ -466,7 +466,7 @@ async def you_dm_other(event):
         sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
 
 
-@catub.cat_cmd(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**⌔︙ عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
@@ -497,7 +497,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text, buttons=buttons)
 
 
-@catub.cat_cmd(CallbackQuery(data=re.compile(rb"to_enquire_something")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**⌔︙ عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
@@ -517,7 +517,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@catub.cat_cmd(CallbackQuery(data=re.compile(rb"to_request_something")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_request_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**⌔︙ عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
@@ -538,7 +538,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@catub.cat_cmd(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**⌔︙ عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
@@ -559,7 +559,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@catub.cat_cmd(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**⌔︙ عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
