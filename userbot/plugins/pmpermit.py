@@ -757,7 +757,7 @@ async def disapprove_p_m(event):
             user, reason = await get_user_from_event(event, secondgroup=True)
             if not user:
                 return
-    if reason == "all":
+    if reason == "الكل":
         pmpermit_sql.disapprove_all()
         return await edit_delete(event, "** حسنا! لقد رفضت الجميع بنجاح. **")
     if not reason:
