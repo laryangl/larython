@@ -624,7 +624,7 @@ async def pmpermit_on(event):
 
 
 @catub.cat_cmd(
-    pattern="pmmenu (on|off)$",
+    pattern="(on|off) pmmenu$",
     command=("pmmenu", plugin_category),
     info={
         "header": "To turn on or turn off pmmenu.",
