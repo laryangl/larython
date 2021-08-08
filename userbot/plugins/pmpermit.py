@@ -21,6 +21,7 @@ from . import mention
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
+PMPERMIT_PIC = Config.PMPERMIT_PIC
 
 
 async def do_pm_permit_action(event, chat):  # sourcery no-metrics
