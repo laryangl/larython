@@ -610,7 +610,7 @@ async def on_plug_in_callback_query_handler(event):
 async def pmpermit_on(event):
     "Turn on/off pmpermit."
     input_str = event.pattern_match.group(1)
-    if input_str == "on":
+    if input_str == "تفعيل":
         if gvarstatus("pmpermit") is None:
             addgvar("pmpermit", "true")
             await edit_delete(event, "__تم تفعيل الحمايه لحسابك بنجاح.__")
@@ -634,7 +634,7 @@ async def pmpermit_on(event):
 async def pmpermit_on(event):
     "Turn on/off pmmenu."
     input_str = event.pattern_match.group(1)
-    if input_str == "off":
+    if input_str == "تعطيل":
         if gvarstatus("pmmenu") is None:
             addgvar("pmmenu", "false")
             await edit_delete(
