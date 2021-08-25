@@ -12,13 +12,13 @@ cmdprefix = Config.COMMAND_HAND_LER
 plugin_category = "tools"
 
 hemojis = {
-    "admin": "👮‍♂️",
-    "bot": "🤖",
-    "fun": "🎨",
-    "misc": "🧩",
-    "tools": "🧰",
-    "utils": "🗂",
-    "extra": "➕",
+    "اوامر الادمن": "👮‍♂️",
+    "اوامر البوت": "🤖",
+    "اوامر مضحكه": "🎨",
+    "اغاني": "🧩",
+    "الاعدادات": "🧰",
+    "الملفات": "🗂",
+    "اشياء اخرى": "➕",
 }
 
 
@@ -127,7 +127,7 @@ async def cmdlist():
 
 @catub.cat_cmd(
     pattern="help ?(-c|-p|-t)? ?([\s\S]*)?",
-    command=("help", plugin_category),
+    command=("مساعده", plugin_category),
     info={
         "header": "To get guide for catuserbot.",
         "description": "To get information or guide for the command or plugin",
@@ -169,8 +169,8 @@ async def _(event):
 
 
 @catub.cat_cmd(
-    pattern="cmds(?:\s|$)([\s\S]*)",
-    command=("cmds", plugin_category),
+    pattern="الاوامر(?:\s|$)([\s\S]*)",
+    command=("الاوامر", plugin_category),
     info={
         "header": "To show list of cmds.",
         "description": "if no input is given then will show list of all commands.",
@@ -181,7 +181,7 @@ async def _(event):
     },
 )
 async def _(event):
-    "To get list of commands."
+    "للحصول على قائمة الأوامر."
     input_str = event.pattern_match.group(1)
     if not input_str:
         outstr = await cmdlist()
