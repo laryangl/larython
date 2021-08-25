@@ -1,4 +1,4 @@
-#!/usr/bin/evn python
+#!/usr/bin/evn python لتخمط 
 # -*- coding: utf-8 -*-
 import json
 import math
