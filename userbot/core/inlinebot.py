@@ -1,4 +1,4 @@
-#!/usr/bin/evn python لتخمط
+#!/usr/bin/evn python
 # -*- coding: utf-8 -*-
 import json
 import math
@@ -80,7 +80,7 @@ def main_menu():
                 data=f"fun_menu",
             ),
             Button.inline(
-                f"🧩 المسقى ({len(GRP_INFO['misc'])})",
+                f"🧩 الموسيقى ({len(GRP_INFO['misc'])})",
                 data=f"misc_menu",
             ),
         ),
@@ -541,16 +541,16 @@ async def inline_handler(event):  # sourcery no-metrics
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
-        (Button.inline("Open Menu", data="mainmenu"),),
+        (Button.inline("فتح القائمه ⚙️", data="mainmenu"),),
     ]
-    await event.edit("Menu Closed", buttons=buttons)
+    await event.edit("اغلاق القائمه ⚙️", buttons=buttons)
 
 
 @catub.tgbot.on(CallbackQuery(data=re.compile(b"check")))
 async def on_plugin_callback_query_handler(event):
     text = f"𝙿𝚕𝚞𝚐𝚒𝚗𝚜: {len(PLG_INFO)}\
         \n𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜: {len(CMD_INFO)}\
-        \n\n{tr}𝚑𝚎𝚕𝚙 <𝚙𝚕𝚞𝚐𝚒𝚗> : 𝙵𝚘𝚛 𝚜𝚙𝚎𝚌𝚒𝚏𝚒𝚌 𝚙𝚕𝚞𝚐𝚒𝚗 𝚒𝚗𝚏𝚘.\
+        \n\n{tr}اوامر خاصه في المساعده.\
         \n{tr}𝚑𝚎𝚕𝚙 -𝚌 <𝚌𝚘𝚖𝚖𝚊𝚗𝚍> : 𝙵𝚘𝚛 𝚊𝚗𝚢 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 𝚒𝚗𝚏𝚘.\
         \n{tr}𝚜 <𝚚𝚞𝚎𝚛𝚢> : 𝚃𝚘 𝚜𝚎𝚊𝚛𝚌𝚑 𝚊𝚗𝚢 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜.\
         "
@@ -682,7 +682,7 @@ async def on_plug_in_callback_query_handler(event):
                 "⬅️ رجوع ",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
-            Button.inline("⚙️ Main Menu", data="mainmenu"),
+            Button.inline("⚙️ قائمه الاوامر", data="mainmenu"),
         )
     ]
     text = f"**Command :** `{tr}{cmd}`\
