@@ -12,8 +12,8 @@ thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg"
 
 
 @catub.cat_cmd(
-    pattern="install$",
-    command=("install", plugin_category),
+    pattern="تنصيب$",
+    command=("تنصيب", plugin_category),
     info={
         "header": "To install an external plugin.",
         "description": "Reply to any external plugin(supported by cat) to install it in your bot.",
@@ -75,8 +75,8 @@ async def load(event):
 
 
 @catub.cat_cmd(
-    pattern="send ([\s\S]*)",
-    command=("send", plugin_category),
+    pattern="ارسل ([\s\S]*)",
+    command=("ارسل", plugin_category),
     info={
         "header": "To upload a plugin file to telegram chat",
         "usage": "{tr}send <plugin name>",
@@ -99,11 +99,11 @@ async def send(event):
             allow_cache=False,
             reply_to=reply_to_id,
             thumb=thumb,
-            caption=f"**➥ Plugin Name:-** `{input_str}`",
+            caption=f"**➥ اسم الملف:-** `{input_str}`",
         )
         await event.delete()
     else:
-        await edit_or_reply(event, "404: File Not Found")
+        await edit_or_reply(event, "لايوجد هاكذا نوع ⚙️")
 
 
 @catub.cat_cmd(
@@ -127,7 +127,7 @@ async def unload(event):
 
 
 @catub.cat_cmd(
-    pattern="uninstall ([\s\S]*)",
+    pattern="ازاله ([\s\S]*)",
     command=("uninstall", plugin_category),
     info={
         "header": "To uninstall a plugin temporarily.",
